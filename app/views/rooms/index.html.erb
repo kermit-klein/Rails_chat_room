@@ -5,7 +5,7 @@
             <hr>
             <% @rooms.each do |room| %>
             <%= link_to room do %>
-            <div class="card">
+            <div class="card mb-2">
                 <div class="card-body">
                     <%= room.name %>
                 </div>
@@ -15,7 +15,12 @@
         </div>
         <div class="col-9">
             <% if @room.present? %>
-            <p> <%= @room.name %> </p>
+            <div class="chat-room">
+                <p> <%= @room.name %> </p>
+                <div class="chat-box">
+                    <%= render "messages/form", message: Message.new, room: @room %>
+                </div>
+            </div>
             <%end%>
         </div>
     </div>
