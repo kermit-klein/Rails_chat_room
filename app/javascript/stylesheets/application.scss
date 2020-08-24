@@ -1,4 +1,17 @@
 .chat-room {
-  background-color: grey;
   overflow-y: hidden;
+  height: 100vh;
+  .chat-box {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    input[type="text"] {
+      height: 45px;
+      font-size: 18px;
+      padding: 8px;
+    }
+    .btn {
+      height: 45px;
+    }
+  }
 }
