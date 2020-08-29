@@ -2,16 +2,28 @@
   overflow-y: hidden;
   height: 100vh;
   .message {
-    display: inline-block;
-    .content {
-      background-color: #eeeeee;
-      padding: 8px 16px;
-      border-radius: 20px;
+    min-height: 59px;
+    .content-container {
+      display: inline-block;
+
+      .content {
+        background-color: #eeeeee;
+        padding: 8px 16px;
+        border-radius: 20px;
+      }
+      .author {
+        font-size: 0.8rem;
+        color: #777777;
+        margin-left: 10px;
+      }
     }
-    .author {
-      font-size: 0.8rem;
-      color: #777777;
-      margin-left: 10px;
+    &.me {
+      .content-container {
+        float: right;
+        .content {
+          background-color: #007bff;
+        }
+      }
     }
   }
   .chat-box {

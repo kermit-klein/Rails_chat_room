@@ -17,17 +17,20 @@
         <div class="col-9">
             <% if @room.present? %>
             <div class="chat-room">
-                <p> <%= @room.name %> </p>
+                <nav class="navbar navbar-light bg-light mb-4">
+                    <span href="#" class="navbar-brand"><%= @room.name %></span>
+                </nav>
                 <% @room.messages.each do |message| %>
                 <div class="message mb-3 <%= "me" if message.user == current_user %> ">
-                    <div class="content">
-                        <%= message.content %>
-                    </div>
-                    <div class="author">
-                        <%= message.user.username %>
+                    <div class="content-container">
+                        <div class="content">
+                            <%= message.content %>
+                        </div>
+                        <div class="author">
+                            <%= message.user.username %>
+                        </div>
                     </div>
                 </div>
-                <br>
                 <% end %>
                 <div class="chat-box">
                     <%= render "messages/form", message: Message.new, room: @room %>
