@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
-            <div class="card">
+            <div class="card no-outline">
                 <div class="card-body">
                     <small> Logged in as </small><br>
                     <b><%= current_user.username%></b>
@@ -14,9 +14,10 @@
             <hr>
             <% @rooms.each do |room| %>
             <%= link_to room do %>
-            <div class="card mb-2">
+            <div class="card no-outline mb-2">
                 <div class="card-body">
-                    <%= room.name %>
+                    <b><%= room.name %></b><br>
+                    <small><%= room.users.uniq.count %> Members </small>
                 </div>
             </div>
             <% end %>
