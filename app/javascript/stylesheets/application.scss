@@ -15,6 +15,12 @@ body {
     padding-bottom: 200px;
   }
 
+  .navbar {
+    border-bottom: 1px solid #eeeeee;
+    margin-left: -15px;
+    width: calc(100% + 30px);
+  }
+
   .message {
     min-height: 59px;
     .content-container {

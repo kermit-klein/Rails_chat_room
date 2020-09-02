@@ -34,7 +34,8 @@
             <div class="chat-room">
                 <nav class="navbar navbar-light">
                     <span href="#" class="navbar-brand">
-                        <%= @room.name %>
+                        <b><%= @room.name %></b> <br>
+                        <small><%= @room.users.uniq.count %> Members </small>
                     </span>
                 </nav>
                 <div id="messages">
