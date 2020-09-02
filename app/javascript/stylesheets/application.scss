@@ -8,6 +8,13 @@ body {
 .chat-room {
   overflow-y: scroll;
   height: 100vh;
+
+  #messages {
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 200px;
+  }
+
   .message {
     min-height: 59px;
     .content-container {
@@ -38,7 +45,10 @@ body {
     position: absolute;
     bottom: 0;
     padding: 20px;
-    width: calc(100% - 15px);
+    width: 100%;
+    margin-left: -15px;
+    background-color: white;
+    border-top: 1px solid #eeeeee;
     input[type="text"] {
       height: 45px;
       font-size: 18px;
