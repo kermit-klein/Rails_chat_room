@@ -3,14 +3,19 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3">
+        <div class="col-3 rooms-sidebar">
             <div class="card no-outline">
                 <div class="card-body">
                     <small> Logged in as </small><br>
                     <b><%= current_user.username%></b>
                 </div>
             </div>
-            <%= render "form", room: Room.new %>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <%= render "form", room: Room.new %>
+                </div>
+            </div>
             <hr>
             <% @rooms.each do |room| %>
             <%= link_to room, class: "room-link" do %>
