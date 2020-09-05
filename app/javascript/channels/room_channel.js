@@ -5,7 +5,9 @@ document.addEventListener("turbolinks:load", () => {
   const room_id = Number(room_element.getAttribute("data-room-id"));
 
   consumer.subscriptions.subscriptions.forEach((subscription) => {
-    consumer.subscriptions.remove(subscription);
+    if (JSON.parse(subscription.identifier.channel == "RoomChannel")) {
+      consumer.subscriptions.remove(subscription);
+    }
   });
 
   consumer.subscriptions.create(
