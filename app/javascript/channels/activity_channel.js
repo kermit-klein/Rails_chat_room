@@ -15,6 +15,12 @@ consumer.subscriptions.create("ActivityChannel", {
     let elements = document.getElementsByClassName(
       `user-${data.user_id}-status`
     );
-    Array.from(elements, (element) => element.classList.add("online"));
+    Array.from(elements, (element) => {
+      if (data.status == "online") {
+        element.classList.add("online");
+      } else {
+        element.classList.remove("online");
+      }
+    });
   },
 });
