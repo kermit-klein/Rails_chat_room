@@ -108,6 +108,10 @@ body {
 .activity-status {
   font-size: 20px;
   float: left;
-  margin-top: -6px;
+  margin-top: -7px;
   margin-right: 4px;
+  color: #e0e0e0;
+  &.online {
+    color: green;
+  }
 }
