@@ -24,14 +24,16 @@ document.addEventListener("turbolinks:load", () => {
       received(data) {
         const user_element = document.getElementById("user-id");
         const user_id = Number(user_element.getAttribute("data-user-id"));
-        let html;
-        if (user_id === data.message.user_id) {
-          html = data.mine;
-        } else {
-          html = data.theirs;
+        // let html;
+        // if (user_id === data.message.user_id) {
+        //   html = data.mine;
+        // } else {
+        //   html = data.theirs;
+        // }
+        if (user_id != data.message.user_id) {
+          const messageContainer = document.getElementById("messages");
+          messageContainer.innerHTML = messageContainer.innerHTML + data.html;
         }
-        const messageContainer = document.getElementById("messages");
-        messageContainer.innerHTML = messageContainer.innerHTML + html;
       },
     }
   );
