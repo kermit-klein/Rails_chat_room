@@ -19,7 +19,7 @@ class SendMessageJob < ApplicationJob
     )
 
     room = message.room
-    room.current_user.each do |user|
+    room.current_users.each do |user|
       next if message.sent_by?(user)
 
       stream = "room_#{message.room_id}_user_#{user.id}"
