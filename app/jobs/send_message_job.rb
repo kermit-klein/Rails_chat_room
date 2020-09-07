@@ -26,7 +26,6 @@ class SendMessageJob < ApplicationJob
 
       cable_ready[stream].insert_adjacent_html(
         selector: '#messages',
-        position: 'beforeend',
         html: html
       )
       cable_ready.broadcast

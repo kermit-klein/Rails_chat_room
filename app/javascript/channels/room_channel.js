@@ -23,18 +23,7 @@ document.addEventListener("turbolinks:load", () => {
       },
 
       received(data) {
-        const user_element = document.getElementById("user-id");
-        const user_id = Number(user_element.getAttribute("data-user-id"));
-        // let html;
-        // if (user_id === data.message.user_id) {
-        //   html = data.mine;
-        // } else {
-        //   html = data.theirs;
-        // }
-        let fromMe = data.operations.insertAdjacentHtml[0].userId == user_id;
-        if (data.cableReady && !fromMe) {
-          CableReady.perform(data.operations);
-        }
+        CableReady.perform(data.operations);
       },
     }
   );
