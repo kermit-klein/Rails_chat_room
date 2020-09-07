@@ -1,4 +1,5 @@
 import consumer from "./consumer";
+import CableReady from "cable_ready";
 
 document.addEventListener("turbolinks:load", () => {
   const room_element = document.getElementById("room-id");
@@ -30,9 +31,9 @@ document.addEventListener("turbolinks:load", () => {
         // } else {
         //   html = data.theirs;
         // }
-        if (user_id != data.message.user_id) {
-          const messageContainer = document.getElementById("messages");
-          messageContainer.innerHTML = messageContainer.innerHTML + data.html;
+        let fromMe = data.operations.insertAdjacentHtml[0].userId == user_id;
+        if (data.cableReady && !fromMe) {
+          CableReady.perform(data.operations);
         }
       },
     }

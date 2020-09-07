@@ -1,5 +1,6 @@
 class SendMessageJob < ApplicationJob
   queue_as :default
+  include CableReady::Broadcaster
 
   def perform(message)
     # mine = ApplicationController.render(
@@ -17,6 +18,12 @@ class SendMessageJob < ApplicationJob
       locals: { message: message }
     )
 
-    ActionCable.server.broadcast "room_channel_#{message.room_id}", html: html, message: message
+    cable_ready["room_channel_#{message.room_id}"].insert_adjacent_html(
+      selector: '#messages',
+      position: 'beforeend',
+      html: html,
+      user_id: message.user_id
+    )
+    cable_ready.broadcast
   end
 end
